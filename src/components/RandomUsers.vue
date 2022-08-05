@@ -126,7 +126,7 @@ export default defineComponent({
         if(filterByGender.value?.length != undefined)
         {
           totalusers.value = filterByGender.value.length
-          if(filterByGender.value.length / numofUsers.value < 4)
+          if(filterByGender.value.length / numofUsers.value <= 3)
           {
             if(filterByGender.value.length / numofUsers.value < page.value)
             {
