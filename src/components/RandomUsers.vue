@@ -139,12 +139,17 @@ export default defineComponent({
           }
           else
           {
-            if(filterByGender.value.length / numofUsers.value <= currentpage.value+2)
+            if((filterByGender.value.length / numofUsers.value <= currentpage.value+2 && page.value >= 3) || (filterByGender.value.length / numofUsers.value <= currentpage.value+1 && page.value <= 2))
             {
               lastPage()
             }
             else
             {
+              if(filterByGender.value.length / numofUsers.value <= currentpage.value+2)
+              {
+                currentpage.value = Math.ceil((totalusers.value/numofUsers.value) - 3)
+                page.value = 3
+              }
               adjustPage()
             }
           }
